@@ -104,6 +104,7 @@ pcps.sig.res <- list(res1, res2, res3, res4)
 saveRDS(pcps.sig.res, here::here("output/pcps.sig_res.rds"))
 
 # organizing a table with the results of null models
+pcps.sig.res <- readRDS(here::here("output/pcps.sig_res.rds"))
 
 table1 <- data.frame(PCPS1 = c(obs = pcps.sig.res[[1]]$obs.statistic, site = pcps.sig.res[[1]]$p.site.shuffle,
                                taxa = pcps.sig.res[[1]]$p.taxa.shuffle, rel_eig = pcps_comm$values$Relative_eig[1]*100),
@@ -197,17 +198,12 @@ PCPS_2.3 <- ggplot() +
 
 PCPS_2.3
 
-leg <- get_legend(PCPS_1.2)
+leg <- cowplot::get_legend(PCPS_1.2)
 
-cowplot::plot_grid(PCPS_1.2 + theme(legend.position = "none"), 
+p.PCPS <- cowplot::plot_grid(PCPS_1.2 + theme(legend.position = "none"), 
                    PCPS_1.3 + theme(legend.position = "none"), 
                    PCPS_2.3 + theme(legend.position = "none"),
                    leg)
 
-pdf(here::here("output", "figures", "Fig1_pcps1-3.pdf"), height = 8, width = 10)
-cowplot::plot_grid(PCPS_1.2 + theme(legend.position = "none"), 
-                   PCPS_1.3 + theme(legend.position = "none"), 
-                   PCPS_2.3 + theme(legend.position = "none"),
-                   leg)
-dev.off()
-
+cowplot::save_plot(here::here("output/figures/Fig1_PCPS1.png"), p.PCPS,
+                   base_height = 6, base_width = 8)

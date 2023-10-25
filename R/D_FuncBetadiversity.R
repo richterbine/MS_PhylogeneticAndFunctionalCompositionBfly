@@ -35,12 +35,14 @@ comm.env$SU <- substr(rownames(comm.env), 2, 4)
 comm.env$Month <- substr(rownames(comm.env), 5,5)
 comm.env <- comm.env[,-1]
 head(comm.env)
+saveRDS(comm.env, here::here("output/comm_envir.rds"))
 
 # separating the community matrix
 comm.bfly <- comm.data[,-c(1,2,37, 38)]
 str(comm.bfly)
 rownames(comm.bfly) <- comm.data$Code
 head(comm.bfly)
+saveRDS(comm.bfly, here::here("output/community_bfly.rds"))
 
 # first - remove the allometric component of FEA and FWL
 head(traits.bfly)
@@ -71,7 +73,6 @@ colnames(traits)
 rownames(traits) <- traits.bfly$Species
 head(traits)
 saveRDS(traits, here::here("output/traits.rds"))
-saveRDS(comm.bfly, here::here("output/community_bfly.rds"))
 
 ########################################################################
 # function that incorporate the phylogenetic signal, phylogeny correction
@@ -83,6 +84,9 @@ RES <- physig.cwm.function(comm = comm.bfly, traits = traits, tree = tree.bfly,
                            random.term = "Month")
 
 saveRDS(RES, here::here("output/res_cwm.rds"))
+
+# Extracting the results from CWM function ----
+RES <- readRDS(here::here("output/res_cwm.rds"))
 
 table2 <- as.data.frame(t(RES$CWM.output))
 
@@ -96,14 +100,14 @@ table2$p.value <- na.omit(c(RES$Trait.phylosig$k.statistic[match(rownames(table2
                                                          rownames(RES$Trait.phylosig$EM.Mantel)),2]))
 table2$p.BM <- RES$Trait.phylosig$EM.Mantel[match(rownames(table2), 
                                                   rownames(RES$Trait.phylosig$EM.Mantel)),3]
-tail(table2)
+(table2)
 write.csv(table2, here::here("data/processed/Table2_CWM.csv"))
-
 
 
 # drawing plots -----------------------------------------------------------
 
 traits <- readRDS(here::here("output/traits.rds"))
+traits
 comm.bfly <- readRDS(here::here("output/community_bfly.rds"))
 
 org <- organize.syncsa(comm.bfly, traits = traits)
@@ -129,16 +133,17 @@ df.cwm$traits.org <- factor(x = df.cwm$traits, levels = c("AR","WL","WTr","FWL.a
                                    "Disruptive*","Criptic","Darkness*"))
 
 p.cwm <- ggplot(data = df.cwm, aes(x = Strata, y = values, colour = Strata, fill = Strata)) +
-  geom_boxplot() + facet_wrap(~traits.org, scales = "free_y") +
-  scale_color_viridis_d(option = "B") +
-  scale_fill_viridis_d(option = "B", alpha = .7) +
-  labs(y = "CWM values")
+  geom_boxplot(alpha = .4) + facet_wrap(~traits.org, scales = "free_y") +
+  scale_color_manual(values = c("#A84944", "#556F21")) +
+  scale_fill_manual(values = c("#A84944", "#556F21")) +
+  labs(y = "CWM values") + 
+  scale_y_continuous(labels = scales::number_format(accuracy = 0.1)) +
+  scale_x_discrete(labels = c("Canopy", "Understory")) +
+  theme(legend.position = "none")
 p.cwm
 
-pdf(here::here("output", "figures", "Fig2_boxplot_CWM.pdf"), height = 6, width = 8)
-p.cwm
-dev.off()
-
+cowplot::save_plot(here::here("output/figures/Fig2_boxplot2_CWM.png"), p.cwm,
+                   base_height = 6, base_width = 8)
 
 # make the ordination
 res.cwm <- list()
