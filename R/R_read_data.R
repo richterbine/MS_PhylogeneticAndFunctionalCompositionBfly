@@ -92,3 +92,6 @@ traits.raw$Host <- PC1
 
 ## save the trait matrix for posterior analysis
 write.csv(traits.raw, here::here("data/processed/Mean_traits_bfly.csv"))
+
+# save packages references
+writeLines(toBibtex(citation("PVR")), con = here::here("doc/Ref_PVR"))
