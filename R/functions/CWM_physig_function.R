@@ -39,7 +39,7 @@ physig.cwm.function <- function(comm, traits, tree, envir,
   pred.physig <- as.formula(paste("p.dist", "~", colnames(envir.num[x1]), "+", 
                                  colnames(envir.num[r1]),
                                  collapse = ""))
-  phylo.sig.comm <- matrix.p.sig(comm = comm, phylodist = dist.phylo, FUN = FUN.ADONIS2.margin, 
+  phylo.sig.comm <- matrix.p.sig(comm = comm, phylodist = dist.phylo, FUN = FUN.ADONIS2.global, 
                                 envir = envir.num, formula = pred.physig, 
                                 method.p = "bray", runs = runs)
   
