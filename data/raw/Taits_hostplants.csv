@@ -1,35 +1,48 @@
-;Clade;Order;Families;Genus;Species
-Archaeoprepona amphimachus (Fabricius, 1775);1;1;1;1;2
-Archaeoprepona chalciope (Hübner, [1823]);2;2;2;2;2
-Archaeoprepona demophon (Linnaeus, 1758);4;7;9;17;21
-Archaeoprepona demophoon (Hübner, [1814]);1;1;1;9;22
-Blepolenis batea (Hübner, [1821]);1;2;2;3;4
-Caligo martia (Godart, [1824]);1;2;2;3;3
-Carminda griseldis (Weymer, 1911);1;1;1;1;1
-Carminda paeon (Godart, [1824]);1;1;1;1;1
-Catoblepia amphirhoe (Hübner, [1825]);1;2;2;2;2
-Diaethria candrena (Godart, [1824]);2;2;2;4;5
-Diaethria clymena (Cramer, 1775);2;3;3;4;5
-Epiphile hubneri Hewitson, 1861;1;1;1;2;2
-Epiphile orea (Hübner, [1823]);1;1;1;4;5
-Eryphanis reevesii (E. Doubleday, [1849]);1;1;1;4;4
-Eteona tisiphone (Boisduval, 1836);1;1;1;2;2
-Euptychoides castrensis (Schaus, 1902);1;1;1;1;1
-Forsterinaria necys (Godart, [1824]);1;1;1;1;1
-Forsterinaria pronophila (A. Butler, 1867);1;1;1;1;1
-Forsterinaria quantius (Godart, [1824]);1;1;1;3;3
-Hamadryas epinome (C. Felder & R. Felder, 1867);1;2;2;2;7
-Hermeuptychia sp Forster, 1964;1;1;2;15;26
-Memphis hirta (Weymer, 1907);1;1;1;1;1
-Memphis moruus (Fabricius, 1775);3;4;4;9;22
-Morpho epistrophus (Fabricius, 1796);3;6;8;14;16
-Morpho portis (Hübner, [1821]);2;2;2;3;3
-Narope cyllastros E. Doubleday, [1849];1;1;1;1;1
-Opoptera fruhstorferi (Röber, 1896);1;1;1;2;2
-Opsiphanes quiteria (Stoll, 1780);1;3;2;18;25
-Paryphthimoides grimon (Godart, [1824]);1;1;1;1;1
-Praepedaliodes phanias (Hewitson, 1862);1;1;1;3;4
-Prepona pylene Hewitson, [1854];1;1;1;1;1
-Smyrna blomfildia (Fabricius, 1781);1;1;1;2;4
-Taygetis ypthima Hübner, [1821];1;1;1;2;3
-Zaretis strigosus (Gmelin, [1790]);1;1;1;1;1
+;;;Abundance;;Host Plants;;;;
+Subfamily/Tribe/Species;Binominal_names;;Canopy;Understory;Clade;Order;Families;Genus;Species
+Charaxinae;;;;;;;;;
+Anaeini;;;;;;;;;
+Memphis hirta (Weymer, 1907);Memphis_hirta;Memphis_hirta;11;0;1;1;1;1;1
+Memphis moruus (Fabricius, 1775);Memphis_moruus;Memphis_moruus;11;0;3;4;4;9;22
+Zaretis strigosus (Gmelin, [1790]);Zaretis_strigosus;Zaretis_strigosus;18;0;1;1;1;1;1
+Preponini;;;;;;;;;
+Archaeoprepona amphimachus (Fabricius, 1775);Archaeoprepona_amphimachus;Archaeoprepona_amphimachus;18;6;1;1;1;1;2
+Archaeoprepona chalciope (Hübner, [1823]);Archaeoprepona_chalciope;Archaeoprepona_chalciope;11;18;2;2;2;2;2
+Archaeoprepona demophon (Linnaeus, 1758);Archaeoprepona_demophon;Archaeoprepona_demophon;1;0;4;7;9;17;21
+Archaeoprepona demophoon (Hübner, [1814]);Archaeoprepona_demophoon;Archaeoprepona_demophoon;1;0;1;1;1;9;22
+Prepona pylene Hewitson, [1854];Prepona_pylene;Prepona_pylene;6;0;1;1;1;1;1
+Satyrinae;;;;;;;;;
+Brassolini;;;;;;;;;
+Blepolenis batea (Hübner, [1821]);Blepolenis_batea;Blepolenis_batea;1;0;1;2;2;3;4
+Caligo martia (Godart, [1824]);Caligo_martia;Caligo_martia;0;5;1;2;2;3;3
+Catoblepia amphirhoe (Hübner, [1825]);Catoblepia_amphirhoe;Catoblepia_amphirhoe;1;0;1;2;2;2;2
+Eryphanis reevesii (E. Doubleday, [1849]);Eryphanis_reevesii;Eryphanis_reevesii;0;30;1;1;1;4;4
+Narope cyllastros E. Doubleday, [1849];Narope_cyllastros;Narope_cyllastros;0;2;1;1;1;1;1
+Opoptera fruhstorferi (Röber, 1896);Opoptera_fruhstorferi;Opoptera_fruhstorferi;0;54;1;1;1;2;2
+Opsiphanes quiteria (Stoll, 1780);Opsiphanes_quiteria;Opsiphanes_quiteria;1;0;1;3;2;18;25
+Morphini;;;;;;;;;
+Morpho epistrophus (Fabricius, 1796);Morpho_epistrophus;Morpho_epistrophus;2;50;3;6;8;14;16
+Morpho portis (Hübner, [1821]);Morpho_portis;Morpho_portis;0;5;2;2;2;3;3
+Satyrini;;;;;;;;;
+Carminda griseldis (Weymer, 1911);Carminda_griseldis;Carminda_griseldis;1;0;1;1;1;1;1
+Carminda paeon (Godart, [1824]);Carminda_paeon;Carminda_paeon;196;31;1;1;1;1;1
+Eteona tisiphone (Boisduval, 1836);Eteona_tisiphone;Eteona_tisiphone;3;0;1;1;1;2;2
+Forsterinaria necys (Godart, [1824]);Forsterinaria_necys;Forsterinaria_necys;20;73;1;1;1;1;1
+Forsterinaria pronophila (A. Butler, 1867);Forsterinaria_pronophila;Forsterinaria_pronophila;19;9;1;1;1;1;1
+Forsterinaria quantius (Godart, [1824]);Forsterinaria_quantius;Forsterinaria_quantius;1;87;1;1;1;3;3
+Hermeuptychia sp Forster, 1964;Hermeuptychia_sp;Hermeuptychia_sp;2;1;1;1;2;15;26
+Malaveria grimon (Godart, [1824]);Malaveria_grimon;Paryphthimoides_grimon;3;0;1;1;1;1;1
+Euptychoides castrensis (Schaus, 1902);Moneuptychia_castrensis;Euptychoides_castrensis;3;0;1;1;1;1;1
+Praepedaliodes phanias (Hewitson, 1862);Praepedaliodes_phanias;Praepedaliodes_phanias;7;2;1;1;1;3;4
+Taguaiba ypthima Hübner, [1821];Taguaiba_ypthima;Taygetis_ypthima;1;167;1;1;1;2;3
+Biblidinae;;;;;;;;;
+Ageroniini;;;;;;;;;
+Hamadryas epinome (C. Felder & R. Felder, 1867);Hamadryas_epinome;Hamadryas_epinome;0;1;1;2;2;2;7
+Callicorini;;;;;;;;;
+Diaethria candrena (Godart, [1824]);Diaethria_candrena;Diaethria_candrena;3;0;2;2;2;4;5
+Diaethria clymena (Cramer, 1775);Diaethria_clymena;Diaethria_clymena;1;0;2;3;3;4;5
+Epiphilini;;;;;;;;;
+Epiphile hubneri Hewitson, 1861;Epiphile_hubneri;Epiphile_hubneri;12;0;1;1;1;2;2
+Epiphile orea (Hübner, [1823]);Epiphile_orea;Epiphile_orea;14;1;1;1;1;4;5
+Nymphalinae/Nymphalini;;;;;;;;;
+Smyrna blomfildia (Fabricius, 1781);Smyrna_blomfildia;Smyrna_blomfildia;2;0;1;1;1;2;4

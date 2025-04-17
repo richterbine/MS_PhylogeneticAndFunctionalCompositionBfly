@@ -14,6 +14,16 @@
 # predictor = a string with the name of predictor variable
 # random.term = a string with the name of the random term
 
+# comm = comm.bfly
+# traits = traits
+# tree = tree.bfly
+# envir = comm.env
+# binary = TRUE
+# runs = 99
+# AsFactors = c(1,2,3)
+# predictor = "Strata"
+# random.term = "Month"
+
 physig.cwm.function <- function(comm, traits, tree, envir,
                                binary, runs, AsFactors, 
                                predictor, random.term){
@@ -39,7 +49,8 @@ physig.cwm.function <- function(comm, traits, tree, envir,
   pred.physig <- as.formula(paste("p.dist", "~", colnames(envir.num[x1]), "+", 
                                  colnames(envir.num[r1]),
                                  collapse = ""))
-  phylo.sig.comm <- matrix.p.sig(comm = comm, phylodist = dist.phylo, FUN = FUN.ADONIS2.global, 
+  phylo.sig.comm <- matrix.p.sig(comm = comm, phylodist = dist.phylo,
+                                 FUN = FUN.ADONIS2.global, 
                                 envir = envir.num, formula = pred.physig, 
                                 method.p = "bray", runs = runs)
   
@@ -96,7 +107,8 @@ physig.cwm.function <- function(comm, traits, tree, envir,
     } # phylogenetic free traits
     
     traits.all <- cbind(traits.cont, traits.pvr) # traits matrix input to CWM
-    pgls.option <- c(phy.sig.k[, 1] >= 1, rep(FALSE, ncol(traits.all) - ncol(traits.cont)))
+    pgls.option <- c(phy.sig.k[, 1] >= 1 & phy.sig.k[, 2] < 0.05, 
+                     rep(FALSE, ncol(traits.all) - ncol(traits.cont)))
     
     ## run the cwm.sig.glmm for all traits
     cwm.output <- matrix(NA, ncol = ncol(traits.all), nrow = 6)
@@ -104,7 +116,7 @@ physig.cwm.function <- function(comm, traits, tree, envir,
                              "p.site.shuffle.s", "p.trait.shuffle.i", "p.trait.shuffle.s")
     colnames(cwm.output) <- colnames(traits.all)
     
-    if (phylo.sig.comm$p.taxa.shuffle[2] < 0.05){ # if assemblages are phylogenetically structured
+    if (phylo.sig.comm$p.taxa.shuffle < 0.05){ # if assemblages are phylogenetically structured
       for (i in 1:ncol(traits.all)) {
         cwm.model <- cwm.sig.glmm(comm = comm, traits = traits.all, envir = envir, tree = tree,
                                  formula = as.formula(paste(colnames(traits.all[i]), "~", 
@@ -149,7 +161,7 @@ physig.cwm.function <- function(comm, traits, tree, envir,
     }
     
     phylo.sig <- list(k.statistic = phy.sig.k)
-    pgls.option <- phy.sig.k[, 1] >= 1
+    pgls.option <- phy.sig.k[, 1] >= 1 & phy.sig.k[, 2] < 0.05
     
     ## run the cwm.sig.glmm for all traits
     cwm.output <- matrix(NA, ncol = ncol(traits.all), nrow = 6)
@@ -157,7 +169,7 @@ physig.cwm.function <- function(comm, traits, tree, envir,
                              "p.site.shuffle.s", "p.trait.shuffle.i", "p.trait.shuffle.s")
     colnames(cwm.output) <- colnames(traits.all)
     
-    if (phylo.sig.comm$p.taxa.shuffle[2] < 0.05){
+    if (phylo.sig.comm$p.taxa.shuffle < 0.05){
       for (i in 1:ncol(traits.all)) {
         cwm.model <- cwm.sig.glmm(comm = comm, traits = traits.all, envir = envir, tree = tree,
                                  formula = as.formula(paste(colnames(traits.all[i]), "~", 
